@@ -29,5 +29,20 @@ function Sort() {
      }
      return arr;
   }
+  Sort.prototype.insert = function(arr){
+    for(var i=0;i<arr.length;i++){
+        var insertVal = arr[i];
+        var insertValIndex = i-1;
+        while (insertValIndex>=0&&insertVal<arr[insertValIndex]) {
+          //如果当前值小于前面一个 那个后移一位
+          arr[insertValIndex+1] = arr[insertValIndex];
+          insertValIndex --
+        }
+        if(insertValIndex!=i-1){
+          arr[insertValIndex+1] = insertVal;
+        }
+    }
+    return arr;
+  }
 
 }
